@@ -17,7 +17,7 @@ exports.create = (req, res) => {
 	}
 	
 	//create events management object
-	const eventObj = new EventsManager({
+	const eventsManager = new EventsManager({
 		eventName: req.body.eventName,
 		eventType: req.body.eventType,
 		description: req.body.description,
@@ -26,9 +26,16 @@ exports.create = (req, res) => {
 		eventDate: req.body.eventDate
 	});
 	
+	//validate date if greater than or equal to today's date
+	if (!(eventDate >= new Date())) {
+		res.status(400)
+			.send({ message: "event schedule date must be greater than or equal to today's date !" });
+		return;
+	}
+	
 	//save event into mongo collection
-	EventsManager
-		.save(eventObj)
+	eventsManager
+		.save(eventsManager)
 		.then(data => {
 			res.send(data);
 		})

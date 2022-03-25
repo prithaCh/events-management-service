@@ -10,13 +10,7 @@ module.exports = mongoose => {
 			description: String,
 			place: {type: String, enum: ['chennai', 'bangalore', 'mumbai', 'kolkata', 'delhi', 'pune']},
 			capacity: {type: Number, min:50, max: 200},
-			eventDate: { type: DateOnly,
-				//validate date if greater than or equal to today's date
-				validate: function(input) {
-					return new Date(input) >= new Date()
-				},
-				message: input => `${input} must be greater than or equal to the current date!`
-			}
+			eventDate: { type: DateOnly }
 		},
 		{ timeStamps: true }
 	);
