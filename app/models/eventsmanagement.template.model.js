@@ -1,16 +1,15 @@
 var mongoose = require('mongoose');
-var DateOnly = require('mongoose-dateonly')(mongoose);
 
 //Define Events Management model
 module.exports = mongoose => {
 	
 	var template = mongoose.Schema( {
 			eventName: String,
-			eventType: {type: String, enum: ['movie', 'dance', 'comedy', 'concert', 'conference', 'adventure', 'plays', 'sports']},
+			eventType: {type: String, enum: ['movie', 'dance', 'comedy', 'concert', 'conference', 'adventure', 'drama', 'sports', 'music']},
 			description: String,
 			place: {type: String, enum: ['chennai', 'bangalore', 'mumbai', 'kolkata', 'delhi', 'pune']},
 			capacity: {type: Number, min:50, max: 200},
-			eventDate: { type: DateOnly }
+			eventDate: Date
 		},
 		{ timeStamps: true }
 	);

@@ -27,9 +27,12 @@ exports.create = (req, res) => {
 	});
 	
 	//validate date if greater than or equal to today's date
-	if (!(eventDate >= new Date())) {
+	var currentDate = new Date();
+	var eventDate = new Date(req.body.eventDate);
+	
+	if (eventDate < currentDate) {
 		res.status(400)
-			.send({ message: "event schedule date must be greater than or equal to today's date !" });
+			.send({ message: "event schedule date must be greater than today's date !" });
 		return;
 	}
 	
