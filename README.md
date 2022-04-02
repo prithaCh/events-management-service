@@ -1,5 +1,14 @@
 # events-management-service
 
+- [events-management-service](#events-management-service)
+  - [Description](#description)
+  - [Pre-requisite](#pre-requisite)
+  - [To run the application](#to-run-the-application)
+  - [Build docker image and run locally](#build-docker-image-and-run-locally)
+  - [Run booking-service docker container from DockerHub](#run-booking-service-docker-container-from-dockerhub)
+  - [Tech stack](#tech-stack)
+  - [TODO](#todo)
+  
 ## Description
 
 Events management service exposes APIs to book / schedule an event / show:
