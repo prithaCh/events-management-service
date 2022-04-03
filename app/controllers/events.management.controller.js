@@ -85,7 +85,7 @@ exports.findByEventName = (req, res) => {
 	const eventName = req.query.eventName;
 	console.log("inside find by event name: " + eventName);
 	
-	UserProfile.find({ eventName: eventName })
+	EventsManager.findOne({ eventName: eventName })
 		.then(data => {
 			res.send(data);
 		})

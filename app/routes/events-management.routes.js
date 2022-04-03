@@ -16,6 +16,9 @@ module.exports = app =>  {
 	
 	//retrieve single event with id
 	router.get("/event/:id", eventsManager.findOne);
+
+	//retrieve single event by event name
+	router.get("/eventByName", eventsManager.findByEventName);
 	
 	//update event by id
 	router.put("/event/:id", eventsManager.update);
