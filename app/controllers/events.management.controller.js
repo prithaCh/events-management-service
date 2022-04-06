@@ -11,7 +11,7 @@ exports.create = (req, res) => {
 	
 	console.log(req.body);
 	//Validate request
-	if(!req.body) {
+	if(!req.body || req.body.eventName == "" || req.body.eventName == null) {
 		res.status(400).send({ message: "Content cannot be empty!" });
 		return;
 	}
